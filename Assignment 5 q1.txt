@@ -1,0 +1,158 @@
+mysql> create table tblParents(parent_id int primary key auto_increment,parent_name varchar(30) not null,city varchar(30) not null,age int not null,annual_income int not null,occupation varchar(50) not null,emailid varchar(40) unique not null);
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> desc tblparents;
++---------------+-------------+------+-----+---------+----------------+
+| Field         | Type        | Null | Key | Default | Extra          |
++---------------+-------------+------+-----+---------+----------------+
+| parent_id     | int         | NO   | PRI | NULL    | auto_increment |
+| parent_name   | varchar(30) | NO   |     | NULL    |                |
+| city          | varchar(30) | NO   |     | NULL    |                |
+| age           | int         | NO   |     | NULL    |                |
+| annual_income | int         | NO   |     | NULL    |                |
+| occupation    | varchar(50) | NO   |     | NULL    |                |
+| emailid       | varchar(40) | NO   | UNI | NULL    |                |
++---------------+-------------+------+-----+---------+----------------+
+mysql> INSERT INTO tblParents (parent_id, parent_name, city, age, annual_income, occupation, emailid)values (1, 'John Smith', 'John Smith', 45, 1000000, 'Lawyer', 'john.smith@example.com');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO tblParents (parent_id,parent_name, city, age, annual_income, occupation, emailid)values  (2, 'Jane Doe', 'Mumbai', 38, 850000, 'Marketing Manager', 'jane.doe@example.com');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO tblParents (parent_id,parent_name, city, age, annual_income, occupation, emailid)values  (3, 'mahesh', 'Ahemdabad', 38, 1200000, 'Marketing Manager', 'mahesh@example.com');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO tblParents (parent_id,parent_name, city, age, annual_income, occupation, emailid)values (4, 'Mary Johnson', 'lucknow', 42, 900000, 'Teacher', 'mary.johnson@example.com'),(5, 'Kevin Brown', 'Hydrabad', 50, 950000, 'Sales Manager', 'kevin.brown@example.com'),(6, 'Karen Williams', 'Mumbai', 34, 750000, 'Graphic Designer', 'karen.williams@example.com');
+Query OK, 3 rows affected (0.00 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO tblParents (parent_id,parent_name, city, age, annual_income, occupation, emailid)values(7, 'Michael Davis', 'Banglore', 41, 1050000, 'IT Manager', 'michael.davis@example.com'),(8, 'Samantha Green', 'Delhi', 47, 1100000, 'Business Analyst', 'samantha.green@example.com'),(9, 'Robert Taylor', 'Delhi', 39, 300000, 'Real Estate Agent', 'robert.taylor@example.com'),(10, 'Amy Martinez', 'Chennai', 36, 400000, 'Nurse', 'amy.martinez@example.com'),(11, 'Steven Rodriguez', 'Latur', 49, 1150000, 'Financial Advisor', 'steven.rodriguez@example.com'),(12, 'Michelle Turner', 'Surat', 43, 950000, 'Human Resources Manager', 'michelle.turner@example.com'),(13, 'Thomas Jackson', 'Jhasi', 55, 1300000, 'Doctor', 'thomas.jackson@example.com'),(14, 'Ashley White', 'Delhi', 31, 650000, 'Journalist', 'ashley.white@example.com'),(15, 'Daniel Hernandez', 'Bhopal', 44, 400000, 'Accountant', 'daniel.hernandez@example.com'),(16, 'Linda Thompson', 'Pune', 48, 1050000, 'Project Manager', 'linda.thompson@example.com'),(17, 'Christopher Lee', 'Kolkata', 37, 800000, 'Web Developer', 'christopher.lee@example.com'),(18, 'Jessica Scott', 'Jaipur', 35, 750000, 'Social Worker', 'jessica.scott@example.com'),(19, 'Timothy Kim', 'Pune', 51, 1150000, 'Consultant', 'timothy.kim@example.com'),(20, 'Stephanie Brown', 'Mumbai', 40, 900000, 'Event Planner', 'stephanie.brown@example.com');
+Query OK, 14 rows affected (0.00 sec)
+Records: 14  Duplicates: 0  Warnings: 0
+mysql> select * from tblparents;
++-----------+------------------+------------+-----+---------------+-------------------------+------------------------------+
+| parent_id | parent_name      | city       | age | annual_income | occupation              | emailid
+   |
++-----------+------------------+------------+-----+---------------+-------------------------+------------------------------+
+|         1 | John Smith       | John Smith |  45 |       1000000 | Lawyer                  | john.smith@example.com       |
+|         2 | Jane Doe         | Mumbai     |  38 |        850000 | Marketing Manager       | jane.doe@example.com         |
+|         3 | mahesh           | Ahemdabad  |  38 |       1200000 | Marketing Manager       | mahesh@example.com           |
+|         4 | Mary Johnson     | lucknow    |  42 |        900000 | Teacher                 | mary.johnson@example.com     |
+|         5 | Kevin Brown      | Hydrabad   |  50 |        950000 | Sales Manager           | kevin.brown@example.com      |
+|         6 | Karen Williams   | Mumbai     |  34 |        750000 | Graphic Designer        | karen.williams@example.com   |
+|         7 | Michael Davis    | Banglore   |  41 |       1050000 | IT Manager              | michael.davis@example.com    |
+|         8 | Samantha Green   | Delhi      |  47 |       1100000 | Business Analyst        | samantha.green@example.com   |
+|         9 | Robert Taylor    | Delhi      |  39 |        300000 | Real Estate Agent       | robert.taylor@example.com    |
+|        10 | Amy Martinez     | Chennai    |  36 |        400000 | Nurse                   | amy.martinez@example.com     |
+|        11 | Steven Rodriguez | Latur      |  49 |       1150000 | Financial Advisor       | steven.rodriguez@example.com |
+|        12 | Michelle Turner  | Surat      |  43 |        950000 | Human Resources Manager | michelle.turner@example.com  |
+|        13 | Thomas Jackson   | Jhasi      |  55 |       1300000 | Doctor                  | thomas.jackson@example.com   |
+|        14 | Ashley White     | Delhi      |  31 |        650000 | Journalist              | ashley.white@example.com     |
+|        15 | Daniel Hernandez | Bhopal     |  44 |        400000 | Accountant              | daniel.hernandez@example.com |
+|        16 | Linda Thompson   | Pune       |  48 |       1050000 | Project Manager         | linda.thompson@example.com   |
+|        17 | Christopher Lee  | Kolkata    |  37 |        800000 | Web Developer           | christopher.lee@example.com  |
+|        18 | Jessica Scott    | Jaipur     |  35 |        750000 | Social Worker           | jessica.scott@example.com    |
+|        19 | Timothy Kim      | Pune       |  51 |       1150000 | Consultant              | timothy.kim@example.com      |
+|        20 | Stephanie Brown  | Mumbai     |  40 |        900000 | Event Planner           | stephanie.brown@example.com  |
++-----------+------------------+------------+-----+---------------+-------------------------+------------------------------+
+20 rows in set (0.00 sec)
+mysql> update tblparents set emailid='NA';
+Query OK, 20 rows affected (0.01 sec)
+Rows matched: 20  Changed: 20  Warnings: 0
+
+mysql> select * from tblparents;
++-----------+------------------+------------+-----+---------------+-------------------------+---------+
+| parent_id | parent_name      | city       | age | annual_income | occupation              | emailid |
++-----------+------------------+------------+-----+---------------+-------------------------+---------+
+|         1 | John Smith       | John Smith |  45 |       1000000 | Lawyer                  | NA      |
+|         2 | Jane Doe         | Mumbai     |  38 |        850000 | Marketing Manager       | NA      |
+|         3 | mahesh           | Ahemdabad  |  38 |       1200000 | Marketing Manager       | NA      |
+|         4 | Mary Johnson     | lucknow    |  42 |        900000 | Teacher                 | NA      |
+|         5 | Kevin Brown      | Hydrabad   |  50 |        950000 | Sales Manager           | NA      |
+|         6 | Karen Williams   | Mumbai     |  34 |        750000 | Graphic Designer        | NA      |
+|         7 | Michael Davis    | Banglore   |  41 |       1050000 | IT Manager              | NA      |
+|         8 | Samantha Green   | Delhi      |  47 |       1100000 | Business Analyst        | NA      |
+|         9 | Robert Taylor    | Delhi      |  39 |        300000 | Real Estate Agent       | NA      |
+|        10 | Amy Martinez     | Chennai    |  36 |        400000 | Nurse                   | NA      |
+|        11 | Steven Rodriguez | Latur      |  49 |       1150000 | Financial Advisor       | NA      |
+|        12 | Michelle Turner  | Surat      |  43 |        950000 | Human Resources Manager | NA      |
+|        13 | Thomas Jackson   | Jhasi      |  55 |       1300000 | Doctor                  | NA      |
+|        14 | Ashley White     | Delhi      |  31 |        650000 | Journalist              | NA      |
+|        15 | Daniel Hernandez | Bhopal     |  44 |        400000 | Accountant              | NA      |
+|        16 | Linda Thompson   | Pune       |  48 |       1050000 | Project Manager         | NA      |
+|        17 | Christopher Lee  | Kolkata    |  37 |        800000 | Web Developer           | NA      |
+|        18 | Jessica Scott    | Jaipur     |  35 |        750000 | Social Worker           | NA      |
+|        19 | Timothy Kim      | Pune       |  51 |       1150000 | Consultant              | NA      |
+|        20 | Stephanie Brown  | Mumbai     |  40 |        900000 | Event Planner           | NA      |
++-----------+------------------+------------+-----+---------------+-------------------------+---------+
+20 rows in set (0.00 sec)
+
+mysql> select count(*) as numparents from tblparents where annual_income>600000;
++------------+
+| numparents |
++------------+
+|         17 |
++------------+
+1 row in set (0.00 sec)
+mysql> select * from tblparents where city in('Ahemdabad','Delhi','Mumbai','Chennai','Banglore');
++-----------+-----------------+-----------+-----+---------------+-------------------+---------+
+| parent_id | parent_name     | city      | age | annual_income | occupation        | emailid |
++-----------+-----------------+-----------+-----+---------------+-------------------+---------+
+|         2 | Jane Doe        | Mumbai    |  38 |        850000 | Marketing Manager | NA      |
+|         3 | mahesh          | Ahemdabad |  38 |       1200000 | Marketing Manager | NA      |
+|         6 | Karen Williams  | Mumbai    |  34 |        750000 | Graphic Designer  | NA      |
+|         7 | Michael Davis   | Banglore  |  41 |       1050000 | IT Manager        | NA      |
+|         8 | Samantha Green  | Delhi     |  47 |       1100000 | Business Analyst  | NA      |
+|         9 | Robert Taylor   | Delhi     |  39 |        300000 | Real Estate Agent | NA      |
+|        10 | Amy Martinez    | Chennai   |  36 |        400000 | Nurse             | NA      |
+|        14 | Ashley White    | Delhi     |  31 |        650000 | Journalist        | NA      |
+|        20 | Stephanie Brown | Mumbai    |  40 |        900000 | Event Planner     | NA      |
++-----------+-----------------+-----------+-----+---------------+-------------------+---------+
+9 rows in set (0.00 sec)
+mysql> select * from tblparents where annual_income<500000;
++-----------+------------------+---------+-----+---------------+-------------------+---------+
+| parent_id | parent_name      | city    | age | annual_income | occupation        | emailid |
++-----------+------------------+---------+-----+---------------+-------------------+---------+
+|         9 | Robert Taylor    | Delhi   |  39 |        300000 | Real Estate Agent | NA      |
+|        10 | Amy Martinez     | Chennai |  36 |        400000 | Nurse             | NA      |
+|        15 | Daniel Hernandez | Bhopal  |  44 |        400000 | Accountant        | NA      |
++-----------+------------------+---------+-----+---------------+-------------------+---------+
+3 rows in set (0.00 sec)
+mysql> select * from tblparents where annual_income<500000 || age>45;
++-----------+------------------+----------+-----+---------------+-------------------+---------+
+| parent_id | parent_name      | city     | age | annual_income | occupation        | emailid |
++-----------+------------------+----------+-----+---------------+-------------------+---------+
+|         5 | Kevin Brown      | Hydrabad |  50 |        950000 | Sales Manager     | NA      |
+|         8 | Samantha Green   | Delhi    |  47 |       1100000 | Business Analyst  | NA      |
+|         9 | Robert Taylor    | Delhi    |  39 |        300000 | Real Estate Agent | NA      |
+|        10 | Amy Martinez     | Chennai  |  36 |        400000 | Nurse             | NA      |
+|        11 | Steven Rodriguez | Latur    |  49 |       1150000 | Financial Advisor | NA      |
+|        13 | Thomas Jackson   | Jhasi    |  55 |       1300000 | Doctor            | NA      |
+|        15 | Daniel Hernandez | Bhopal   |  44 |        400000 | Accountant        | NA      |
+|        16 | Linda Thompson   | Pune     |  48 |       1050000 | Project Manager   | NA      |
+|        19 | Timothy Kim      | Pune     |  51 |       1150000 | Consultant        | NA      |
++-----------+------------------+----------+-----+---------------+-------------------+---------+
+9 rows in set, 1 warning (0.00 sec)
+mysql> create table student(studentid int primary key not null,studentname varchar(50) not null,maths int not null,science int not null, parent_id int not null,foreign key(parent_id) references tblparents(parent_id));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> INSERT INTO Student VALUES(1, 'John Doe', 80, 90, 1),(2, 'Jane Doe', 75, 85, 2),(3, 'Mike Smith', 90, 95, 3),(4, 'Mary Johnson', 85, 80, 4),(5, 'David Lee', 70, 75, 5),(6, 'Sarah Kim', 95, 90, 6),(7, 'James Lee', 80, 85, 7),(8, 'Karen Kim', 75, 80, 8),(9, 'William Chen', 90, 95, 9),(10, 'Emily Patel', 85, 80, 10);
+Query OK, 10 rows affected (0.01 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> select * from student;
++-----------+--------------+-------+---------+-----------+
+| studentid | studentname  | maths | science | parent_id |
++-----------+--------------+-------+---------+-----------+
+|         1 | John Doe     |    80 |      90 |         1 |
+|         2 | Jane Doe     |    75 |      85 |         2 |
+|         3 | Mike Smith   |    90 |      95 |         3 |
+|         4 | Mary Johnson |    85 |      80 |         4 |
+|         5 | David Lee    |    70 |      75 |         5 |
+|         6 | Sarah Kim    |    95 |      90 |         6 |
+|         7 | James Lee    |    80 |      85 |         7 |
+|         8 | Karen Kim    |    75 |      80 |         8 |
+|         9 | William Chen |    90 |      95 |         9 |
+|        10 | Emily Patel  |    85 |      80 |        10 |
++-----------+--------------+-------+---------+-----------+
+10 rows in set (0.00 sec)

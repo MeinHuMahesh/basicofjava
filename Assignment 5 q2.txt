@@ -1,0 +1,46 @@
+mysql> insert into company values(1,'Dominos','Los Angeles'),(2,'Pizza Hut','San Francisco'),(3,'Papa johns','San Diego'),(4,'Ah Pizz','Fermont'),(5,'Nino Pizza','Las Vegas'),(6,'Pizzeria','Boston');
+Query OK, 6 rows affected (0.01 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> select * from company;
++-----------+-------------+---------------+
+| companyid | companyname | companycity   |
++-----------+-------------+---------------+
+|         1 | Dominos     | Los Angeles   |
+|         2 | Pizza Hut   | San Francisco |
+|         3 | Papa johns  | San Diego     |
+|         4 | Ah Pizz     | Fermont       |
+|         5 | Nino Pizza  | Las Vegas     |
+|         6 | Pizzeria    | Boston        |
++-----------+-------------+---------------+
+6 rows in set (0.00 sec)
+mysql> create table items(itemid int primary key not null,itemname varchar(50) not null,unitssold int not null,companyid int not null);
+Query OK, 0 rows affected (0.02 sec)
+mysql> select * from items;
++--------+--------------+-----------+-----------+
+| itemid | itemname     | unitssold | companyid |
++--------+--------------+-----------+-----------+
+|      1 | Large Pizza  |         5 |         2 |
+|      2 | Garlic knots |         6 |         3 |
+|      3 | large pizza  |         3 |         3 |
+|      4 | medium pizza |         8 |         4 |
+|      5 | breadsticks  |         7 |         1 |
+|      6 | medium pizza |        11 |         1 |
+|      7 | small pizza  |         9 |         6 |
+|      8 | small pizza  |         6 |         7 |
++--------+--------------+-----------+-----------+
+8 rows in set (0.00 sec)
+
+mysql> select company.companyid from company inner join items on items.companyid=company.companyid;
++-----------+
+| companyid |
++-----------+
+|         2 |
+|         3 |
+|         3 |
+|         4 |
+|         1 |
+|         1 |
+|         6 |
++-----------+
+7 rows in set (0.00 sec)
